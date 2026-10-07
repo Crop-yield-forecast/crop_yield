@@ -1,0 +1,23 @@
+column,type,source,description
+plot_id,string,crop_yield_train.csv,Unique identifier for each farm plot
+region,categorical,crop_yield_train.csv,Ethiopian administrative region
+crop_type,categorical,crop_yield_train.csv,Standardized crop type
+survey_year,integer,crop_yield_train.csv,Survey observation year (2021-2024)
+planting_month,categorical,crop_yield_train.csv,Month crop was planted
+altitude_m,numeric,crop_yield_train.csv,Elevation in meters above sea level
+rainfall_mm_season,numeric,crop_yield_train.csv,Self-reported growing season rainfall in mm
+farm_size_ha,numeric,crop_yield_train.csv,Total farm plot area in hectares
+fertilizer_kg_per_ha,numeric,crop_yield_train.csv,Fertilizer application rate in kg/ha
+improved_seed_used,binary (0/1),crop_yield_train.csv,Indicator if certified improved seed was used
+pest_disease_flag,binary (0/1),crop_yield_train.csv,Indicator if pest/disease pressure was observed
+soil_quality_index,numeric (0-1),crop_yield_train.csv,Composite soil quality index score
+labor_days_per_ha,numeric,crop_yield_train.csv,Labor invested per hectare in person-days
+distance_to_market_km,numeric,crop_yield_train.csv,Distance to nearest local market in km
+yield_tons_per_ha,numeric,crop_yield_train.csv,Target variable: crop yield in metric tons per hectare
+seasonal_avg_temp_c,numeric,regional_weather.csv,Engineered: Growing season 4-month average temperature (°C)
+seasonal_total_rainfall_mm,numeric,regional_weather.csv,Engineered: Growing season 4-month total regional rainfall (mm)
+seasonal_extreme_heat_days,integer,regional_weather.csv,Engineered: Growing season count of extreme heat days
+seasonal_max_monthly_rainfall_mm,numeric,regional_weather.csv,Engineered: Peak monthly rainfall during growing season (mm)
+fert_x_seed,numeric,Derived,Interaction term: fertilizer_kg_per_ha * improved_seed_used
+labor_per_ha,numeric,Derived,Ratio: labor_days_per_ha / (farm_size_ha + 0.1)
+rain_ratio,numeric,Derived,Ratio: plot-reported rainfall / regional station rainfall
